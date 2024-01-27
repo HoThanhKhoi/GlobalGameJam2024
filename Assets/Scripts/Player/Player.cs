@@ -5,13 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance {get; private set;}
+    private PlayerStats playerStats;
 
     private int _score;
 
     private SpawnManager _spawnManager;
 
-    [SerializeField] private PlayerStatSO playerStats;
-    private int currentHappiness;
+    
 
     //private UIManager _uiManager;
     // Start is called before the first frame update
@@ -28,14 +28,13 @@ public class Player : MonoBehaviour
 
 
     private void Start() {
-        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        _spawnManager = SpawnManager.Instance;
+        playerStats = GetComponent<PlayerStats>();
 
-        if( _spawnManager == null)
+        if ( _spawnManager == null)
         {
             Debug.LogError("Spawner is NULL");
         }
-
-        currentHappiness = playerStats.maxHappiness;
 
         /*
         if( _uiManager == null)
@@ -48,21 +47,5 @@ public class Player : MonoBehaviour
     {
         _score += points;
         //_uiManager.UpdateScore(_score);
-    }
-
-    public void AddHappiness(int value)
-    {
-        currentHappiness += value;
-    }
-
-    public void DecreaseHappiness()
-    {
-        currentHappiness -= playerStats.happinessDecreaseValue;
-        Debug.Log(currentHappiness);
-
-        if(currentHappiness <= 0)
-        {
-            Time.timeScale = 0;
-        }
     }
 }

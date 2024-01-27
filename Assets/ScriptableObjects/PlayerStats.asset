@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHappiness: 100
   happinessDecreaseValue: 50
+  happinessIncreaseValue: 0.5
   attackSpeed: 0
   attackDamage: 0
   accuracy: 0
