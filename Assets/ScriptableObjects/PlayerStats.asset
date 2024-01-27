@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709cb473d415a7d4ebeb1709b59da6ff, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  maxHappiness: 0
+  maxHappiness: 100
+  happinessDecreaseValue: 20
   attackSpeed: 0
   attackDamage: 0
   accuracy: 0

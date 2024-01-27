@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField] private float speed = 4f;
     private float randomY;
 
@@ -132,6 +131,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {   
+        if(other.gameObject.CompareTag("Escape Border"))
+        {
+            player.DecreaseHappiness();
+        }
         if(other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);

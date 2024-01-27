@@ -7,6 +7,7 @@ public class PlayerStatSO : ScriptableObject
 {
     [Header("Happiness")]
     public int maxHappiness;
+    public int happinessDecreaseValue;
 
     [Header("Attack")]
     public float attackSpeed;

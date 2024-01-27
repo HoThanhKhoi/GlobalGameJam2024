@@ -55,8 +55,14 @@ public class Player : MonoBehaviour
         currentHappiness += value;
     }
 
-    public void DecreaseHappiness(int value)
+    public void DecreaseHappiness()
     {
-        currentHappiness -= value;
+        currentHappiness -= playerStats.happinessDecreaseValue;
+        Debug.Log(currentHappiness);
+
+        if(currentHappiness <= 0)
+        {
+            Time.timeScale = 0;
+        }
     }
 }
