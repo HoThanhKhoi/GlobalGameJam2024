@@ -49,8 +49,6 @@ public class PlayerShooting : MonoBehaviour
     {
         Vector3 shootDirection = (gunFieldOfView.GetPosition(1) - gunFieldOfView.GetPosition(0)).normalized;
 
-        Debug.Log(shootDirection);
-
         // Apply random inaccuracy
         float randomInaccuracy = Random.Range(-bulletInaccuracy, bulletInaccuracy);
 
