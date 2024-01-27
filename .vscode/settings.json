@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "2D URP Template.sln"
+    "dotnet.defaultSolution": "GlobalGameJam2024.sln"
 }
