@@ -7,7 +7,9 @@ public class Cat : MonoBehaviour
 {
     //References
     protected Player player;
+    protected Hitler hitler;
     private PlayerCollision playerCollision;
+    private HitlerCollision hitlerCollision;
 
     //Component
     private Rigidbody2D rb;
@@ -30,6 +32,9 @@ public class Cat : MonoBehaviour
     {
         player = Player.Instance;
         playerCollision = player.GetComponent<PlayerCollision>();
+
+        hitler = Hitler.Instance;
+        hitlerCollision = hitler.GetComponent<HitlerCollision>();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -62,26 +67,45 @@ public class Cat : MonoBehaviour
     private void HandleEvade()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float distanceToHitler = Vector2.Distance(transform.position, hitler.transform.position);
 
         if (distanceToPlayer <= playerCollision.detectRadius)
         {
-            OnEnterPlayerZone();
+            OnEnterEntityZone(player.transform);
+        }
+        else if (distanceToPlayer <= hitlerCollision.detectRadius)
+        {
+            OnEnterEntityZone(hitler.transform);
         }
         else
         {
-            OnExitPlayerZone();
+            OnExitEntityZone();
         }
+
+
     }
 
-    public void OnEnterPlayerZone()
+
+    private void EvadeHitler()
     {
-        float yDistance = transform.position.y - player.transform.position.y;
+        float distanceToHitler = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToHitler <= playerCollision.detectRadius)
+        {
+            OnEnterEntityZone(hitler.transform);
+        }
+
+    }
+
+    public void OnEnterEntityZone(Transform entity)
+    {
+        float yDistance = transform.position.y - entity.transform.position.y;
 
         float yVelocity = yDistance > 0 ? speed : -speed;
         rb.velocity = new Vector2(rb.velocity.x, yVelocity);
     }
 
-    public void OnExitPlayerZone()
+    public void OnExitEntityZone()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);
     }
