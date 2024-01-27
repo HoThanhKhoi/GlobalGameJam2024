@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class ExpManager : MonoBehaviour
 {
-    public static LevelManager Instance { get; private set; }
-
+    public static ExpManager Instance { get; private set; }
+    public delegate void ExpChanged();
     private void Awake()
     {
-        LevelSystem levelSystem = new LevelSystem();
-
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -18,5 +16,9 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    private void Start()
+    {
+        
     }
 }
