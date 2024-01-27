@@ -58,6 +58,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.Instance.Play("SniperSound");
+
         Vector3 shootDirection = (fieldOfViewRenderer.GetPosition(1) - fieldOfViewRenderer.GetPosition(0)).normalized;
 
         // Apply random inaccuracy
