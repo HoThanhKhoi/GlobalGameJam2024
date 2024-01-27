@@ -37,7 +37,7 @@ public class PlayerShooting : MonoBehaviour
         gunFieldOfView.startWidth = 0.5f;
         gunFieldOfView.endWidth = bulletInaccuracy;
 
-        Color lineColor = Color.gray;
+        Color lineColor = Color.black;
         lineColor.a = 0.25f;
 
         gunFieldOfView.startColor = lineColor;
