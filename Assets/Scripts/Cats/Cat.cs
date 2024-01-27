@@ -141,7 +141,8 @@ public class Cat : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-
+            Hit();
+            Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Player"))
         {
@@ -159,7 +160,7 @@ public class Cat : MonoBehaviour
     {
         if (playerMovement != null)
         {
-            // player.AddScore(1);
+             player.AddScore(1);
         }
         speed = 0;
 

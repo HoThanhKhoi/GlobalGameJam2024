@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.033494234, y: 0.08931762}
+  m_Offset: {x: 1.269455, y: 1.6535623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.808682, y: 2.4514112}
+  m_Size: {x: 2.7472582, y: 2.2844434}
   m_EdgeRadius: 0
 --- !u!1 &4195981074367443807
 GameObject:
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2374406601151783810}
   - component: {fileID: 6214844668874249106}
-  - component: {fileID: 8166316187231653824}
+  - component: {fileID: 3288999984679610788}
   m_Layer: 0
   m_Name: Hitler Cat Visual
   m_TagString: Untagged
@@ -152,18 +152,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a7a24b0fc916d9c44a3ea6815f5d9c8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8db10acc61750bf478f781a561efaf0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.125, y: 3.125}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8166316187231653824
+--- !u!95 &3288999984679610788
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
