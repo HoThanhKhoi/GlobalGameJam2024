@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+
+
     }
 
     private void HandlePlayerInput()

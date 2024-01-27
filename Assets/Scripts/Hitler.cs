@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class Hitler : MonoBehaviour
 {
-    public static LevelManager Instance { get; private set; }
-
+    public static Hitler Instance { get; private set; }
     private void Awake()
     {
-        LevelSystem levelSystem = new LevelSystem();
-
-        if (Instance != null)
+        if(Instance != null)
         {
             Destroy(gameObject);
         }

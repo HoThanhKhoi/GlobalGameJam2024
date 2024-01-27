@@ -13,4 +13,10 @@ public class J_Cat : Cat
             player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
         }
     }
+
+    protected override void Hit()
+    {
+        base.Hit();
+        AudioManager.Instance.Play("CatScreamAudio");
+    }
 }

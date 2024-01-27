@@ -9,6 +9,7 @@ public class PlayerStatSO : ScriptableObject
     public float maxHappiness;
     public float happinessDecreaseValueWhenHit;
     public float happinessDecreaseValueWhenEscape;
+    public float happinessDecreaseValueWhenCrashHitler;
     public float happinessIncreaseValue;
 
     [Header("Attack")]
