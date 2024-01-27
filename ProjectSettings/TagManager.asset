@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - Escape Border
+  - Hitler
   layers:
   - Default
   - TransparentFX
