@@ -5,7 +5,8 @@ using UnityEngine;
 public class ExpManager : MonoBehaviour
 {
     public static ExpManager Instance { get; private set; }
-    public delegate void ExpChanged();
+    public delegate void ExpChangeHandler(int amount);
+    public event ExpChangeHandler OnExpChange;
     private void Awake()
     {
         if (Instance != null)
@@ -17,8 +18,8 @@ public class ExpManager : MonoBehaviour
             Instance = this;
         }
     }
-    private void Start()
+    public void AddExp(int amount)
     {
-        
+        OnExpChange?.Invoke(amount);
     }
 }
