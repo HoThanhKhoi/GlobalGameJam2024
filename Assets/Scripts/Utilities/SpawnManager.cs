@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -7,13 +6,22 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject jewCat;
     [SerializeField] private GameObject jewCatContainer;
     private bool _stopSpawning = false;
-    [SerializeField] private GameObject[] cats; 
+    [SerializeField] private GameObject[] cats;
+
+    public SpawnManager spawnManagerIntance;
+
+    private float initialJewCatSpawnRate = 5f;
+    private float initialRandomCatSpawnRate = 3f;
+    private float spawnRateDecreaseInterval = 10f;
+    private float spawnRateDecreaseAmount = 0.1f;
 
     private void Start()
     {
         StartCoroutine(SpawnJewCatRoutine());
         StartCoroutine(SpawnRandomCatRoutine());
+        StartCoroutine(DecreaseSpawnRate());
     }
+
     IEnumerator SpawnJewCatRoutine()
     {
         yield return new WaitForSeconds(2f);
@@ -21,7 +29,7 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject newJewCat = Instantiate(jewCat);
             newJewCat.transform.parent = jewCatContainer.transform;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(initialJewCatSpawnRate);
         }
     }
 
@@ -33,9 +41,27 @@ public class SpawnManager : MonoBehaviour
             int randomCats = Random.Range(0, cats.Length);
             Instantiate(cats[randomCats]);
 
-            yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
+            yield return new WaitForSeconds(initialRandomCatSpawnRate);
         }
     }
+
+    IEnumerator DecreaseSpawnRate()
+    {
+        while (true)
+        {
+            // Wait for the specified interval
+            yield return new WaitForSeconds(spawnRateDecreaseInterval);
+
+            // Decrease spawn rates
+            initialJewCatSpawnRate -= spawnRateDecreaseAmount;
+            initialRandomCatSpawnRate -= spawnRateDecreaseAmount;
+
+            // Ensure spawn rates don't go below a minimum value
+            initialJewCatSpawnRate = Mathf.Max(initialJewCatSpawnRate, 0.1f);
+            initialRandomCatSpawnRate = Mathf.Max(initialRandomCatSpawnRate, 0.1f);
+        }
+    }
+
     public void OnPlayerDeath()
     {
         _stopSpawning = true;

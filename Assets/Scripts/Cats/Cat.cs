@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Cat : MonoBehaviour
 {
-
     [SerializeField] private float speed = 4f;
     private float randomY;
 
@@ -121,7 +120,6 @@ public class Enemy : MonoBehaviour
         float yDistance = transform.position.y - player.transform.position.y;
 
         float yVelocity = yDistance > 0 ? speed : -speed;
-        Debug.Log(yVelocity);
         rb.velocity = new Vector2(rb.velocity.x, yVelocity);
     }
 
@@ -132,6 +130,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {   
+        if(other.gameObject.CompareTag("Escape Border"))
+        {
+            player.DecreaseHappiness();
+        }
         if(other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Escape Border
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - Wall
   - Bullet
-  - 
+  - Cart
   - 
   - 
   - 
@@ -42,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 3613767179
+    locked: 0
+  - name: Enemy
+    uniqueID: 2202146943
+    locked: 0
+  - name: Player
+    uniqueID: 1474692683
     locked: 0
