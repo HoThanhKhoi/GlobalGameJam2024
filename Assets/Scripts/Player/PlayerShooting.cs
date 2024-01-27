@@ -30,16 +30,16 @@ public class PlayerShooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
 
-       
+
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, transform.position + (mousePosition - transform.position).normalized * 30f);
 
-        float bulletInaccuracy = 4f; 
+        float bulletInaccuracy = 4f;
         lineRenderer.startWidth = 0.5f;
         lineRenderer.endWidth = bulletInaccuracy;
 
-        Color lineColor = Color.gray; 
-        lineColor.a = 0.25f; 
+        Color lineColor = Color.gray;
+        lineColor.a = 0.25f;
 
         lineRenderer.startColor = lineColor;
         lineRenderer.endColor = lineColor;
@@ -54,6 +54,17 @@ public class PlayerShooting : MonoBehaviour
 
         Quaternion bulletRotation = Quaternion.LookRotation(Vector3.forward, shootDirection) * Quaternion.Euler(0f, 0f, randomInaccuracy);
         canFire = Time.time + fireRate;
-        Instantiate(bulletPrefab, transform.position, bulletRotation);
+
+        if (IsHitEnemy(shootDirection))
+        {
+            lineRenderer.SetPosition(2, transform.position + shootDirection * Vector2.Distance(IsHitEnemy(shootDirection).transform.position, transform.position));
+            IsHitEnemy(shootDirection).transform.GetComponent<Cat>().Hit();
+        }
+        // Instantiate(bulletPrefab, transform.position, bulletRotation);
+    }
+
+    private RaycastHit2D IsHitEnemy(Vector3 shootDirection)
+    {
+        return Physics2D.Raycast(transform.position, shootDirection, Mathf.Infinity, GameManager.Instance.enemyLayer);
     }
 }

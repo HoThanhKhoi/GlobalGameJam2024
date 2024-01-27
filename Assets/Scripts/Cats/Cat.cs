@@ -18,6 +18,7 @@ public class Cat : MonoBehaviour
 
     private PlayerCollision playerCollision;
     private Animator enemyAnimator;
+    [SerializeField] private GameObject pfExplosionEffect;
     public static event Action OnHappinessChanged;
     public void OnActionTriggered()
     {
@@ -50,17 +51,19 @@ public class Cat : MonoBehaviour
             Debug.LogError("Enemy Animator is NULL");
         }
         */
-        
+
         randomY = UnityEngine.Random.Range(upperBorderY, lowerBorderY);
         transform.position = new Vector3(20, randomY, 0);
     }
 
-    private void Update() {
+    private void Update()
+    {
         HandleEvade();
     }
 
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         HandleMovement();
     }
 
@@ -111,7 +114,7 @@ public class Cat : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
         // Debug.Log(distanceToPlayer);
         // Debug.Log(playerCollision.detectRadius);
-        if(distanceToPlayer <= playerCollision.detectRadius)
+        if (distanceToPlayer <= playerCollision.detectRadius)
         {
             OnEnterPlayerZone();
         }
@@ -135,27 +138,35 @@ public class Cat : MonoBehaviour
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
-    {   
-        if(other.gameObject.CompareTag("Bullet"))
+    {
+        if (other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(other.gameObject);
-            if(playerMovement != null)
-            {
-                player.AddScore(1);
-            }
-            speed = 0;
-            
-            Destroy(this.gameObject, 3f);
+
         }
-        else if(other.gameObject.CompareTag("Player"))
+        else if (other.gameObject.CompareTag("Player"))
         {
             if (player != null)
             {
                 player.AddScore(3);
             }
             speed = 0;
-            
+
             Destroy(this.gameObject, 3f);
         }
+    }
+
+    public void Hit()
+    {
+        if (playerMovement != null)
+        {
+            // player.AddScore(1);
+        }
+        speed = 0;
+
+        GameObject explosion = Instantiate(pfExplosionEffect, transform.position, Quaternion.identity);
+        
+        Destroy(explosion, 1f);
+
+        Destroy(gameObject);
     }
 }

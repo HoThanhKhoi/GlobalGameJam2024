@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
 
     private void PlayerStats_onHappinessChanged()
     {
-        Debug.Log(currentHappiness);
+
     }
 
     private void OnDisable()
@@ -57,7 +57,6 @@ public class PlayerStats : MonoBehaviour
     {
         onHappinessChanged?.Invoke(); //
         currentHappiness -= playerStatSO.happinessDecreaseValue;
-        Debug.Log(currentHappiness);
 
         if (currentHappiness <= 0)
         {

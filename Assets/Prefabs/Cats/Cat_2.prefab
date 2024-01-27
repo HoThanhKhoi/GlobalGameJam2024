@@ -156,6 +156,7 @@ MonoBehaviour:
   speed: 8
   upperBorderY: 6
   lowerBorderY: -9.3
+  pfExplosionEffect: {fileID: 5814235325923331571, guid: 557f8a9baf290c542b5838180539879a, type: 3}
 --- !u!61 &5403045692170404859
 BoxCollider2D:
   m_ObjectHideFlags: 0
