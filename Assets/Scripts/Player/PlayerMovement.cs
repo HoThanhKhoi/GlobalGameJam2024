@@ -34,11 +34,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         HandlePlayerInput();
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            HandleDash();
-        }
     }
 
     private void FixedUpdate()
