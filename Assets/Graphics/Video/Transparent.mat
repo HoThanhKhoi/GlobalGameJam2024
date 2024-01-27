@@ -60,11 +60,13 @@ Material:
     - _EnableExternalAlpha: 0
     - _Float: 0.3
     - _Float_1: 0.1
+    - _Fuzziness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Range: 0.3
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorToRemove: {r: 0.003921569, g: 0.9529411, b: 0.01568628, a: 1}
+    - _ColorToRemove: {r: 0.003921569, g: 0.95294124, b: 0.015686275, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
