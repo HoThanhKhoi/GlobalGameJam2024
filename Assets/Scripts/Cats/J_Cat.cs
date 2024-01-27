@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class J_Cat : Cat
 {
-    protected override void OnTriggerEnter2D(Collider2D other)
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(other);
-        if (other.CompareTag("Escape Border"))
+        base.OnTriggerEnter2D(collision);
+        if (collision.gameObject.CompareTag("Escape Border"))
         {
             player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
         }

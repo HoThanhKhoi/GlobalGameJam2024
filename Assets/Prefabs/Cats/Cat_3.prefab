@@ -115,9 +115,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882653347908789682}
-  - component: {fileID: -4769738355298594031}
   - component: {fileID: 7063603135270944295}
   - component: {fileID: -631482856158453816}
+  - component: {fileID: -7207281422941735696}
   m_Layer: 7
   m_Name: Cat_3
   m_TagString: Enemy
@@ -230,3 +230,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-7207281422941735696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251288405580603276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4e42363ecf11e49805a925da078283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  upperBorderY: 6
+  lowerBorderY: -9.3
+  pfExplosionEffect: {fileID: 5814235325923331571, guid: 557f8a9baf290c542b5838180539879a, type: 3}

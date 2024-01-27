@@ -18,4 +18,4 @@ public class PlayerStatSO : ScriptableObject
 
     [Header("Movement")]
     public float movementSpeed;
-}
+} 
