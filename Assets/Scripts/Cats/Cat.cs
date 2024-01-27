@@ -18,7 +18,7 @@ public class Cat : MonoBehaviour
     [SerializeField] private float upperBorderY;
     [SerializeField] private float lowerBorderY;
 
-    //[SerializeField] private float xPosDestroyBorder = -20f;
+    [SerializeField] private float xPosDestroyBorder = -20f;
     [SerializeField] private float xPosSpawn = 20f;
     private float randomY;
 
@@ -57,10 +57,10 @@ public class Cat : MonoBehaviour
     {
         rb.velocity = new Vector2(-speed, rb.velocity.y);
 
-        //if (transform.position.x <= xPosDestroyBorder)
-        //{
-        //    Destroy(gameObject);
-        //}
+        if (transform.position.x <= xPosDestroyBorder)
+        {
+            Destroy(gameObject);
+        }
     }
 
     #region Evade Player
@@ -69,32 +69,21 @@ public class Cat : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
         float distanceToHitler = Vector2.Distance(transform.position, hitler.transform.position);
 
-        if (distanceToPlayer <= playerCollision.detectRadius)
-        {
-            OnEnterEntityZone(player.transform);
-        }
-        else if (distanceToPlayer <= hitlerCollision.detectRadius)
-        {
-            OnEnterEntityZone(hitler.transform);
-        }
-        else
+        if (distanceToPlayer > playerCollision.detectRadius && distanceToHitler > hitlerCollision.detectRadius)
         {
             OnExitEntityZone();
         }
-
-
-    }
-
-
-    private void EvadeHitler()
-    {
-        float distanceToHitler = Vector2.Distance(transform.position, player.transform.position);
-
-        if (distanceToHitler <= playerCollision.detectRadius)
+        else
         {
-            OnEnterEntityZone(hitler.transform);
+            if (distanceToPlayer <= playerCollision.detectRadius)
+            {
+                OnEnterEntityZone(player.transform);
+            }
+            if (distanceToHitler <= hitlerCollision.detectRadius)
+            {
+                OnEnterEntityZone(hitler.transform);
+            }
         }
-
     }
 
     public void OnEnterEntityZone(Transform entity)

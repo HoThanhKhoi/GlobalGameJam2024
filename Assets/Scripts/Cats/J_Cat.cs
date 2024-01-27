@@ -10,6 +10,7 @@ public class J_Cat : Cat
         base.OnTriggerEnter2D(other);
         if (other.CompareTag("Escape Border"))
         {
+            Debug.Log("Escaped");
             player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
         }
     }
