@@ -860,6 +860,19 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &605056654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605056642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb11b59ce92b7994a96dd9e2a6f76351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatSO: {fileID: 11400000, guid: 70e49b0925fde9e478e3b7ef173d1882, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2768290182325909499, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2768290182325909499, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
       propertyPath: m_SortingOrder
@@ -2141,6 +2154,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7786530659497769037, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 605056649}
+    - targetCorrespondingSourceObject: {fileID: 7786530659497769037, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 605056654}
   m_SourcePrefab: {fileID: 100100000, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
