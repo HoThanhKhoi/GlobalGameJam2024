@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHappiness: 100
   happinessDecreaseValueWhenHit: 20
   happinessDecreaseValueWhenEscape: 10
-  happinessIncreaseValue: 0.1
+  happinessIncreaseValue: 1
   attackSpeed: 0
   attackDamage: 0
   accuracy: 0

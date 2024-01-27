@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject jewCat;
-    [SerializeField] private GameObject jewCatContainer;
-    private bool _stopSpawning = false;
-    [SerializeField] private GameObject[] cats;
-
     public static SpawnManager Instance { get; private set; }
+
+    [SerializeField] private GameObject jewCat;
+
+    private bool stopSpawning = false;
+    [SerializeField] private GameObject[] cats;
 
     private float initialJewCatSpawnRate = 5f;
     private float initialRandomCatSpawnRate = 3f;
@@ -37,10 +37,10 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnJewCatRoutine()
     {
         yield return new WaitForSeconds(2f);
-        while (_stopSpawning == false)
+        while (stopSpawning == false)
         {
             GameObject newJewCat = Instantiate(jewCat);
-            newJewCat.transform.parent = jewCatContainer.transform;
+            newJewCat.transform.parent = this.transform;
             yield return new WaitForSeconds(initialJewCatSpawnRate);
         }
     }
@@ -48,11 +48,11 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnRandomCatRoutine()
     {
         yield return new WaitForSeconds(1f);
-        while (_stopSpawning == false)
+        while (stopSpawning == false)
         {
             int randomCats = Random.Range(0, cats.Length);
-            Instantiate(cats[randomCats]);
-
+            GameObject newHitlerCat = Instantiate(cats[randomCats]);
+            newHitlerCat.transform.parent = this.transform;
             yield return new WaitForSeconds(initialRandomCatSpawnRate);
         }
     }
@@ -76,6 +76,6 @@ public class SpawnManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
-        _stopSpawning = true;
+        stopSpawning = true;
     }
 }
