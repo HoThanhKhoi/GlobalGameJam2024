@@ -16,14 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed;
 
-    //Dash
-    [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashTime;
-    [SerializeField] private float dashCoolDown;
-    private float dashTimeCounter;
-    private float dashCoolDownCounter;
-    private bool canDash;
-
 
     private void Awake()
     {
@@ -36,8 +28,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         speed = player.stats.playerStatSO.movementSpeed;
-
-        canDash = true;
     }
 
     // Update is called once per frame
@@ -62,23 +52,14 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        Debug.Log(horizontalInput + " " + verticalInput);
     }
 
     private void HandleMovement()
     {
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         rb.velocity = direction * speed;
-
-        // transform.Translate(direction * _speed * Time.deltaTime);
-    }
-
-    private void HandleDash()
-    {
-        if (dashTimeCounter <= 0 && dashCoolDownCounter <= 0)
-        {
-            Vector2 dashDir = new Vector2(horizontalInput, verticalInput);
-            rb.velocity = dashDir * dashSpeed;
-        }
     }
 
 }
