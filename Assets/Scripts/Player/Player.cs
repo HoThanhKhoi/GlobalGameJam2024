@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
         if(currentHappiness <= 0)
         {
             Time.timeScale = 0;
+            Debug.Log("Lose Game");
         }
     }
 }
