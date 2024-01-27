@@ -20,12 +20,12 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
+        stats = GetComponent<PlayerStats>();
     }
 
 
     private void Start()
     {
-        stats = GetComponent<PlayerStats>();
 
         currentHappiness = stats.playerStatSO.maxHappiness;
     }

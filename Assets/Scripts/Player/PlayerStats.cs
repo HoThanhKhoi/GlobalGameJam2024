@@ -7,26 +7,29 @@ public class PlayerStats : MonoBehaviour
 {
     public PlayerStatSO playerStatSO;
     private float currentHappiness;
-    private event Action onHappinessChanged;
+
+    public event Action OnHappinessChanged;
+    [SerializeField] private HappinessBar happinessBar;
 
     private void Start()
     {
         currentHappiness = playerStatSO.maxHappiness;
+        happinessBar.UpdateBar(playerStatSO.maxHappiness, currentHappiness);
     }
 
     private void OnEnable()
     {
-        onHappinessChanged += PlayerStats_onHappinessChanged;
+        OnHappinessChanged += PlayerStats_onHappinessChanged;
     }
 
     private void OnDisable()
     {
-        onHappinessChanged -= PlayerStats_onHappinessChanged;
+        OnHappinessChanged -= PlayerStats_onHappinessChanged;
     }
 
     private void PlayerStats_onHappinessChanged()
     {
-        Debug.Log(currentHappiness);
+        happinessBar.UpdateBar(playerStatSO.maxHappiness, currentHappiness);
     }
 
     private void Update()
@@ -42,14 +45,14 @@ public class PlayerStats : MonoBehaviour
     }
     public void IncreaseHappiness(float value)
     {
-        onHappinessChanged?.Invoke();
+        OnHappinessChanged?.Invoke();
         currentHappiness = currentHappiness + value * Time.deltaTime;
         currentHappiness = Mathf.Clamp(currentHappiness, 0, playerStatSO.maxHappiness);
     }
 
     public void DecreaseHappiness(float value)
     {
-        onHappinessChanged?.Invoke(); //
+        OnHappinessChanged?.Invoke(); //
         currentHappiness -= value;
 
         if (currentHappiness <= 0)
