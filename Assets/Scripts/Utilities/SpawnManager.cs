@@ -12,8 +12,8 @@ public class SpawnManager : MonoBehaviour
 
     private float initialJewCatSpawnRate = 5f;
     private float initialRandomCatSpawnRate = 3f;
-    private float spawnRateDecreaseInterval = 10f;
-    private float spawnRateDecreaseAmount = 0.1f;
+    private float spawnRateDecreaseInterval = 1f;
+    private float spawnRateDecreaseAmount = 0.01f;
 
     private void Awake()
     {

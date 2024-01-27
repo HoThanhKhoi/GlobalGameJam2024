@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Cat : MonoBehaviour
 {
+    //[SerializeField] private AudioClip explosionAudioClip;
+    //private AudioSource audioSource;
     [SerializeField] private float speed = 4f;
     private float randomY;
 
@@ -31,13 +33,14 @@ public class Cat : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         /*
-        _audioSource = GetComponent<AudioSource>();
-        if(_audioSource == null)
+        audioSource = GetComponent<AudioSource>();
+        if(audioSource == null)
         {
-            Debug.LogError("Enemy Audio Source is NULL");
+            Debug.LogError("Explosion Audio Source is NULL");
         }
-        _audioSource.clip = _explosionAudioClip;
-
+        audioSource.clip = explosionAudioClip;
+        */
+        /*
         _player = GameObject.Find("Player").GetComponent<Player>();
         if(_player == null)
         {
@@ -141,7 +144,8 @@ public class Cat : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-
+            Hit();
+            Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Player"))
         {
@@ -159,7 +163,7 @@ public class Cat : MonoBehaviour
     {
         if (playerMovement != null)
         {
-            // player.AddScore(1);
+             player.AddScore(1);
         }
         speed = 0;
 

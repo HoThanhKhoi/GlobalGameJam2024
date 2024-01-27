@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance{get;private set;}
 
-    [SerializeField] public LayerMask playerLayer;
-    [SerializeField] public LayerMask enemyLayer;
+    public LayerMask playerLayer;
+    public LayerMask enemyLayer;
 
     private void Awake() {
         if(Instance != null)
