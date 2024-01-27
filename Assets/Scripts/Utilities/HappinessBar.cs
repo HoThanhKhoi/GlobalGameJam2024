@@ -9,7 +9,7 @@ public class HappinessBar : MonoBehaviour
     private float maxHappiness;
     private float currentHappiness;
 
-    private void Start()
+    private void Awake()
     {
         slider = GetComponent<Slider>();
     }
