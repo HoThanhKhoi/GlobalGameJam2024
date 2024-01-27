@@ -7,11 +7,12 @@ public class PlayerStatSO : ScriptableObject
 {
     [Header("Happiness")]
     public float maxHappiness;
-    public float happinessDecreaseValue;
+    public float happinessDecreaseValueWhenHit;
+    public float happinessDecreaseValueWhenEscape;
     public float happinessIncreaseValue;
 
     [Header("Attack")]
-    public float attackSpeed;
+    public float fireRate;
     public int attackDamage;
     public float accuracy;
 

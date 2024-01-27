@@ -5,58 +5,53 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private PlayerStatSO playerStatSO;
+    public PlayerStatSO playerStatSO;
     private float currentHappiness;
-
     private event Action onHappinessChanged;
-
-    private void OnEnable()
-    {
-        Cat.OnHappinessChanged += Cat_OnHappinessChanged;
-        onHappinessChanged += PlayerStats_onHappinessChanged;
-    }
-
-    private void PlayerStats_onHappinessChanged()
-    {
-
-    }
-
-    private void OnDisable()
-    {
-        Cat.OnHappinessChanged -= Cat_OnHappinessChanged;
-        onHappinessChanged -= PlayerStats_onHappinessChanged;
-
-    }
-
-    private void Cat_OnHappinessChanged()
-    {
-        DecreaseHappiness();
-    }
 
     private void Start()
     {
         currentHappiness = playerStatSO.maxHappiness;
     }
 
+    private void OnEnable()
+    {
+        onHappinessChanged += PlayerStats_onHappinessChanged;
+    }
+
+    private void OnDisable()
+    {
+        onHappinessChanged -= PlayerStats_onHappinessChanged;
+    }
+
+    private void PlayerStats_onHappinessChanged()
+    {
+        Debug.Log(currentHappiness);
+    }
+
     private void Update()
     {
+        Debug.Log(currentHappiness);
         if (!IsHappinessFull())
         {
-            AddHappiness(playerStatSO.happinessIncreaseValue);
+            IncreaseHappiness(playerStatSO.happinessIncreaseValue);
         }
     }
-    private bool IsHappinessFull() => currentHappiness >= playerStatSO.maxHappiness; //m
-    public void AddHappiness(float value)
+    private bool IsHappinessFull()
+    {
+        return currentHappiness >= playerStatSO.maxHappiness;
+    }
+    public void IncreaseHappiness(float value)
     {
         onHappinessChanged?.Invoke();
         currentHappiness = currentHappiness + value * Time.deltaTime;
         currentHappiness = Mathf.Clamp(currentHappiness, 0, playerStatSO.maxHappiness);
     }
 
-    public void DecreaseHappiness()
+    public void DecreaseHappiness(float value)
     {
         onHappinessChanged?.Invoke(); //
-        currentHappiness -= playerStatSO.happinessDecreaseValue;
+        currentHappiness -= value;
 
         if (currentHappiness <= 0)
         {
