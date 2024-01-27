@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerStatSO : ScriptableObject
 {
     [Header("Happiness")]
-    public int maxHappiness;
-    public int happinessDecreaseValue;
+    public float maxHappiness;
+    public float happinessDecreaseValue;
+    public float happinessIncreaseValue;
 
     [Header("Attack")]
     public float attackSpeed;

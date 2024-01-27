@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,16 @@ public class Cat : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private Player player;
+    protected Player player;
     private PlayerMovement playerMovement;
 
     private PlayerCollision playerCollision;
     private Animator enemyAnimator;
+    public static event Action OnHappinessChanged;
+    public void OnActionTriggered()
+    {
+        OnHappinessChanged?.Invoke();
+    }
     void Start()
     {
         player = Player.Instance;
@@ -45,7 +51,7 @@ public class Cat : MonoBehaviour
         }
         */
         
-        randomY = Random.Range(upperBorderY, lowerBorderY);
+        randomY = UnityEngine.Random.Range(upperBorderY, lowerBorderY);
         transform.position = new Vector3(20, randomY, 0);
     }
 
@@ -64,7 +70,7 @@ public class Cat : MonoBehaviour
 
         if (transform.position.x <= -20)
         {
-            randomY = Random.Range(upperBorderY, lowerBorderY);
+            randomY = UnityEngine.Random.Range(upperBorderY, lowerBorderY);
             transform.position = new Vector3(20, randomY, 0);
         }
     }
@@ -128,12 +134,8 @@ public class Cat : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {   
-        if(other.gameObject.CompareTag("Escape Border"))
-        {
-            player.DecreaseHappiness();
-        }
         if(other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);

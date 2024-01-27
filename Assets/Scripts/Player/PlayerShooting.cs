@@ -9,12 +9,12 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float fireRate = 1f;
     private float canFire = 0f;
 
-    void Start()
+    private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
         UpdateConeOfFire();
 
@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    void UpdateConeOfFire()
+    private void UpdateConeOfFire()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f;
@@ -45,10 +45,7 @@ public class PlayerShooting : MonoBehaviour
         lineRenderer.endColor = lineColor;
     }
 
-
-
-
-    void Shoot()
+    private void Shoot()
     {
         Vector3 shootDirection = (lineRenderer.GetPosition(1) - lineRenderer.GetPosition(0)).normalized;
 

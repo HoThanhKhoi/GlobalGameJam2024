@@ -8,12 +8,24 @@ public class SpawnManager : MonoBehaviour
     private bool _stopSpawning = false;
     [SerializeField] private GameObject[] cats;
 
-    public SpawnManager spawnManagerIntance;
+    public static SpawnManager Instance { get; private set; }
 
     private float initialJewCatSpawnRate = 5f;
     private float initialRandomCatSpawnRate = 3f;
     private float spawnRateDecreaseInterval = 10f;
     private float spawnRateDecreaseAmount = 0.1f;
+
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
