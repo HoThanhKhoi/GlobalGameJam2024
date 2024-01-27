@@ -5,14 +5,13 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletInaccuracy = 5f;
     public LineRenderer gunFieldOfView;
-    public LineRenderer bulletLineRenderer;
 
     [SerializeField] private float fireRate = 1f;
     private float canFire = 0f;
 
     private void Start()
     {
-
+        gunFieldOfView = GetComponent<LineRenderer>();
     }
 
     private void Update()
@@ -48,8 +47,6 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot()
     {
         Vector3 shootDirection = (gunFieldOfView.GetPosition(1) - gunFieldOfView.GetPosition(0)).normalized;
-
-        Debug.Log(shootDirection);
 
         // Apply random inaccuracy
         float randomInaccuracy = Random.Range(-bulletInaccuracy, bulletInaccuracy);

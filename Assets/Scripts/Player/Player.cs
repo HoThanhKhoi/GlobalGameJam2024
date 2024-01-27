@@ -8,9 +8,8 @@ public class Player : MonoBehaviour
 
     private int _score;
 
-    private SpawnManager _spawnManager;
-
-    [SerializeField] private PlayerStatSO playerStats;
+    private SpawnManager spawnManager;
+    public PlayerStats stats;
     private float currentHappiness;
 
     //private UIManager _uiManager;
@@ -28,14 +27,15 @@ public class Player : MonoBehaviour
 
 
     private void Start() {
-        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        spawnManager = SpawnManager.Instance;
+        stats = GetComponent<PlayerStats>();
 
-        if( _spawnManager == null)
+        if( spawnManager == null)
         {
             Debug.LogError("Spawner is NULL");
         }
 
-        currentHappiness = playerStats.maxHappiness;
+        currentHappiness = stats.playerStatSO.maxHappiness;
 
         /*
         if( _uiManager == null)
@@ -48,22 +48,5 @@ public class Player : MonoBehaviour
     {
         _score += points;
         //_uiManager.UpdateScore(_score);
-    }
-
-    public void AddHappiness(int value)
-    {
-        currentHappiness += value;
-    }
-
-    public void DecreaseHappiness()
-    {
-        currentHappiness -= playerStats.happinessDecreaseValue;
-        Debug.Log(currentHappiness);
-
-        if(currentHappiness <= 0)
-        {
-            Time.timeScale = 0;
-            Debug.Log("Lose Game");
-        }
     }
 }

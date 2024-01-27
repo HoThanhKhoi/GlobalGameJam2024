@@ -8,10 +8,10 @@ public class J_Cat : Cat
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         if (collision.gameObject.CompareTag("Escape Border"))
         {
-            Debug.Log("Collider");
-            OnActionTriggered();
+            player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
         }
     }
 }

@@ -7,9 +7,10 @@ public class H_Cat : Cat
 {
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        base.OnTriggerEnter2D(collision);
+        if (collision.CompareTag("Bullet"))
         {
-            OnActionTriggered();
+            player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenHit);
         }
     }
 }
