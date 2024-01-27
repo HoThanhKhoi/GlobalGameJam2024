@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
 
     private SpawnManager _spawnManager;
 
+    [SerializeField] private PlayerStatSO playerStats;
+    private int currentHappiness;
+
     //private UIManager _uiManager;
     // Start is called before the first frame update
     private void Awake() {
@@ -31,6 +34,9 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("Spawner is NULL");
         }
+
+        currentHappiness = playerStats.maxHappiness;
+
         /*
         if( _uiManager == null)
         {
@@ -42,5 +48,15 @@ public class Player : MonoBehaviour
     {
         _score += points;
         //_uiManager.UpdateScore(_score);
+    }
+
+    public void AddHappiness(int value)
+    {
+        currentHappiness += value;
+    }
+
+    public void DecreaseHappiness(int value)
+    {
+        currentHappiness -= value;
     }
 }
