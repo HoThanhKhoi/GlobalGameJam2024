@@ -261,7 +261,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "08460c949e1a4d299349d6b4f5f0a244",
     "m_Id": 0,
-    "m_DisplayName": "Float (1)",
+    "m_DisplayName": "Fuzziness",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -338,10 +338,10 @@
     "m_Guid": {
         "m_GuidSerialized": "7a4ec11b-43bb-4f18-a879-f1414c441781"
     },
-    "m_Name": "Float",
+    "m_Name": "Range",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Float",
-    "m_DefaultReferenceName": "_Float",
+    "m_RefNameGeneratedByDisplayName": "Range",
+    "m_DefaultReferenceName": "_Range",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -992,7 +992,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "a933d484e68f4da1a3f8523824a7488c",
     "m_Id": 0,
-    "m_DisplayName": "Float",
+    "m_DisplayName": "Range",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1099,10 +1099,10 @@
     "m_Guid": {
         "m_GuidSerialized": "4ffe6454-7adf-4a3c-9ad8-c46e8522d266"
     },
-    "m_Name": "Float (1)",
+    "m_Name": "Fuzziness",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Float (1)",
-    "m_DefaultReferenceName": "_Float_1",
+    "m_RefNameGeneratedByDisplayName": "Fuzziness",
+    "m_DefaultReferenceName": "_Fuzziness",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1147,10 +1147,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -652.0000610351563,
-            "y": 248.00001525878907,
-            "width": 117.60003662109375,
-            "height": 33.59999084472656
+            "x": -654.3999633789063,
+            "y": 263.20001220703127,
+            "width": 127.199951171875,
+            "height": 33.5999755859375
         }
     },
     "m_Slots": [
