@@ -15,7 +15,8 @@ MonoBehaviour:
   maxHappiness: 100
   happinessDecreaseValueWhenHit: 20
   happinessDecreaseValueWhenEscape: 10
-  happinessIncreaseValue: 0.1
+  happinessDecreaseValueWhenCrashHitler: 0
+  happinessIncreaseValue: 1
   fireRate: 1
   attackDamage: 0
   accuracy: 5

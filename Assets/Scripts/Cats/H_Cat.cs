@@ -8,7 +8,11 @@ public class H_Cat : Cat
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
-        Destroy(other.gameObject);
+        if(other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+
+        }
     }
 
     protected override void Hit()

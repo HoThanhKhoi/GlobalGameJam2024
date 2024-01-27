@@ -865,7 +865,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -775, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_SizeDelta: {x: 300, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &872611461
 GameObject:
@@ -1789,7 +1789,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -900, y: 0}
-  m_SizeDelta: {x: 600, y: 500}
+  m_SizeDelta: {x: 600, y: 650}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664255186
 MonoBehaviour:
@@ -1914,7 +1914,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 383538684}
         m_TargetAssemblyTypeName: Main_Menu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
