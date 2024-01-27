@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Escape Border
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - Wall
   - Bullet
-  - 
+  - Cart
   - 
   - 
   - 
