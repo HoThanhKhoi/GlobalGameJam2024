@@ -76,8 +76,7 @@ public class Cat : MonoBehaviour
 
         if (transform.position.x <= -20)
         {
-            randomY = UnityEngine.Random.Range(upperBorderY, lowerBorderY);
-            transform.position = new Vector3(20, randomY, 0);
+            Destroy(this.gameObject);
         }
     }
 
