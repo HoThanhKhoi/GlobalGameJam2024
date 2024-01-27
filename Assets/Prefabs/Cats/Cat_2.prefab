@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2092820353
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2002598204, guid: 723c6d0d2bbc14549ac6f84ae1880c7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b0de7ff6af04b468abca4ee275972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionAudioClip: {fileID: 8300000, guid: f405ea43138e4d444ab0172b6f25e216, type: 3}
   speed: 8
   upperBorderY: 6
   lowerBorderY: -9.3

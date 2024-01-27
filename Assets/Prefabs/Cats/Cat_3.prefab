@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b0de7ff6af04b468abca4ee275972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionAudioClip: {fileID: 8300000, guid: f405ea43138e4d444ab0172b6f25e216, type: 3}
   speed: 8
   upperBorderY: 6
   lowerBorderY: -9.3
