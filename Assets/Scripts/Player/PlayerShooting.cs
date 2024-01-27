@@ -33,11 +33,11 @@ public class PlayerShooting : MonoBehaviour
 
         // Set the positions of the line renderer to form a cone shape
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, transform.position + (mousePosition - transform.position).normalized * 25f);
+        lineRenderer.SetPosition(1, transform.position + (mousePosition - transform.position).normalized * 30f);
 
         // Set LineRenderer width to match bullet inaccuracy
-        float bulletInaccuracy = 5f; // Replace with the actual variable or value
-        lineRenderer.startWidth = 0.1f;
+        float bulletInaccuracy = 4f; // Replace with the actual variable or value
+        lineRenderer.startWidth = 0.5f;
         lineRenderer.endWidth = bulletInaccuracy;
 
         // Set LineRenderer material color

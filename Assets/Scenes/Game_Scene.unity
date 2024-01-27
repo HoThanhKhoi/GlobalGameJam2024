@@ -588,8 +588,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3453794160999048002, guid: 3e86f757d6acdc84bac0d52fdd589542, type: 3}
-  bulletInaccuracy: 5
+  bulletInaccuracy: 4
   lineRenderer: {fileID: 605056649}
+  fireRate: 1
 --- !u!120 &605056649
 LineRenderer:
   serializedVersion: 2
@@ -1357,7 +1358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2585939951440261432, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
       propertyPath: detectRadius
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2985489581049950021, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
       propertyPath: m_LocalScale.x

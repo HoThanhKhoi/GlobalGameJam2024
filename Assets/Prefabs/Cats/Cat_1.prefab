@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b0de7ff6af04b468abca4ee275972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  explosionAudioClip: {fileID: 0}
+  speed: 8
   upperBorderY: 6
   lowerBorderY: -9.3
 --- !u!61 &7498808298809192662
@@ -173,5 +172,5 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
