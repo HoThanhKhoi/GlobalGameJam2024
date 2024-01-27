@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   maxHappiness: 100
-  happinessDecreaseValue: 20
+  happinessDecreaseValue: 50
   attackSpeed: 0
   attackDamage: 0
   accuracy: 0
