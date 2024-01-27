@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
 
     [SerializeField] private PlayerStatSO playerStats;
-    private int currentHappiness;
+    private float currentHappiness;
 
     //private UIManager _uiManager;
     // Start is called before the first frame update
