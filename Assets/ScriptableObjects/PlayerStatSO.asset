@@ -16,7 +16,7 @@ MonoBehaviour:
   happinessDecreaseValueWhenHit: 20
   happinessDecreaseValueWhenEscape: 10
   happinessIncreaseValue: 0.1
-  attackSpeed: 0
+  fireRate: 1
   attackDamage: 0
-  accuracy: 0
-  movementSpeed: 0
+  accuracy: 5
+  movementSpeed: 10

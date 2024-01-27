@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Reference
+    private Player player;
+
+    //Component
     private Rigidbody2D rb;
+
+    //Input
     private float horizontalInput;
     private float verticalInput;
-    [SerializeField] private float speed = 4f;
 
-    private float randomY;
+    private float speed;
+
+
+    private void Awake()
+    {
+        player = Player.Instance;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        speed = player.stats.playerStatSO.movementSpeed;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         HandlePlayerInput();
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         HandleMovement();
     }
 
@@ -30,15 +45,14 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        Debug.Log(horizontalInput + " " + verticalInput);
     }
 
-    void HandleMovement()
+    private void HandleMovement()
     {
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         rb.velocity = direction * speed;
-
-        // transform.Translate(direction * _speed * Time.deltaTime);
     }
-
 
 }

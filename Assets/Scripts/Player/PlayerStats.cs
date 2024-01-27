@@ -31,7 +31,6 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currentHappiness);
         if (!IsHappinessFull())
         {
             IncreaseHappiness(playerStatSO.happinessIncreaseValue);

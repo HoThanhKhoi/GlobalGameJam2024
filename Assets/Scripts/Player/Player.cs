@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance {get; private set;}
+    public static Player Instance { get; private set; }
+    private float score;
 
-    private int _score;
-
-    private SpawnManager spawnManager;
-    public PlayerStats stats;
+    public PlayerStats stats { get; private set; }
     private float currentHappiness;
 
-    //private UIManager _uiManager;
-    // Start is called before the first frame update
-    private void Awake() {
-        if(Instance != null)
+    private void Awake()
+    {
+        if (Instance != null)
         {
             Destroy(Instance.gameObject);
         }
@@ -26,27 +23,14 @@ public class Player : MonoBehaviour
     }
 
 
-    private void Start() {
-        spawnManager = SpawnManager.Instance;
+    private void Start()
+    {
         stats = GetComponent<PlayerStats>();
 
-        if( spawnManager == null)
-        {
-            Debug.LogError("Spawner is NULL");
-        }
-
         currentHappiness = stats.playerStatSO.maxHappiness;
-
-        /*
-        if( _uiManager == null)
-        {
-            Debug.LogError("UI Manager is NULL");
-        }
-        */
     }
     public void AddScore(int points)
     {
-        _score += points;
-        //_uiManager.UpdateScore(_score);
+        score += points;
     }
 }
