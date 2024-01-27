@@ -322,7 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc53b537fbe3df54a8859857c15158ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
 --- !u!61 &605056646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -408,9 +407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3453794160999048002, guid: 3e86f757d6acdc84bac0d52fdd589542, type: 3}
-  bulletFieldOfViewRange: 5
-  fieldOfViewRenderer: {fileID: 0}
-  fireRate: 1
 --- !u!120 &605056649
 LineRenderer:
   serializedVersion: 2

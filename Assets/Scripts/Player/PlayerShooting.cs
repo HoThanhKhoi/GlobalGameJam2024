@@ -2,17 +2,28 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    //Reference
+    private Player player;
+
     public GameObject bulletPrefab;
 
-    public float bulletFieldOfViewRange = 5f;
-    public LineRenderer fieldOfViewRenderer;
+    private float bulletFieldOfViewRange;
+    private LineRenderer fieldOfViewRenderer;
 
-    [SerializeField] private float fireRate = 1f;
+    private float fireRate;
     private float canFire = 0f;
+
+    private void Awake()
+    {
+        player = Player.Instance;
+    }
 
     private void Start()
     {
         fieldOfViewRenderer = GetComponent<LineRenderer>();
+
+        fireRate = player.stats.playerStatSO.fireRate;
+        bulletFieldOfViewRange = player.stats.playerStatSO.accuracy;
     }
 
     private void Update()
