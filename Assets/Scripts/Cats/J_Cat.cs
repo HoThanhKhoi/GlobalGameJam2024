@@ -13,11 +13,21 @@ public class J_Cat : Cat
             Debug.Log("Escaped");
             player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
         }
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     protected override void Hit()
     {
         base.Hit();
-        AudioManager.Instance.Play("CatScreamAudio");
+        
+
+        GameObject explosion = Instantiate(pfExplosionEffect, transform.position, Quaternion.identity);
+
+        Destroy(explosion, 1f);
+
+        Destroy(gameObject);
     }
 }

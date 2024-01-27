@@ -5,11 +5,11 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
+    [SerializeField] private LevelWindow levelWindow;
+    [SerializeField] private Player player;
 
     private void Awake()
     {
-        LevelSystem levelSystem = new LevelSystem();
-
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -18,5 +18,10 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        LevelSystem levelSystem = new LevelSystem();
+        levelWindow.SetLevelSystem(levelSystem);
     }
+
+
 }

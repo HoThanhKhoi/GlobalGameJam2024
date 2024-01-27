@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelSystem
 {
+    public event EventHandler OnExpChanged;
+    public event EventHandler OnLevelChanged;
+
     private int level;
     private int exp;
     private int expToNextLevel;
@@ -29,7 +33,9 @@ public class LevelSystem
         {
             level ++;
             exp -= expToNextLevel;
+            OnLevelChanged?.Invoke(this, EventArgs.Empty);
         }
+        OnExpChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public int GetCurrentLevel()
@@ -39,6 +45,6 @@ public class LevelSystem
 
     public float GetExpNormalized()
     {
-        return exp / expToNextLevel;
+        return (float) exp / expToNextLevel;
     }
 }
