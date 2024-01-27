@@ -228,3 +228,4 @@ MonoBehaviour:
   speed: 10
   upperBorderY: 6
   lowerBorderY: -9.3
+  pfExplosionEffect: {fileID: 5814235325923331571, guid: 557f8a9baf290c542b5838180539879a, type: 3}
