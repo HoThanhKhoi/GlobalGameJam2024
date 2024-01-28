@@ -10,8 +10,8 @@ public class SpawnManager : MonoBehaviour
 
     public static SpawnManager Instance { get; private set; }
 
-    private float initialJewCatSpawnRate = 5f;
-    private float initialRandomCatSpawnRate = 3f;
+    private float initialJewCatSpawnRate = 3f;
+    private float initialRandomCatSpawnRate = 2f;
     private float spawnRateDecreaseInterval = 1f;
     private float spawnRateDecreaseAmount = 0.01f;
 
@@ -71,6 +71,8 @@ public class SpawnManager : MonoBehaviour
             // Ensure spawn rates don't go below a minimum value
             initialJewCatSpawnRate = Mathf.Max(initialJewCatSpawnRate, 0.1f);
             initialRandomCatSpawnRate = Mathf.Max(initialRandomCatSpawnRate, 0.1f);
+            
+
         }
     }
 
