@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class J_Cat : Cat
 {
+    //Exp
+    [SerializeField] private int expPerKill;
+
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
@@ -29,5 +32,9 @@ public class J_Cat : Cat
         Destroy(explosion, 1f);
 
         Destroy(gameObject);
+
+        Debug.Log(expPerKill);
+
+        LevelManager.Instance.AddExp(expPerKill);
     }
 }

@@ -225,7 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5eda2dcb4f1a74dbd76ecc7e0a094a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   upperBorderY: 6
   lowerBorderY: -9.3
+  xPosDestroyBorder: -20
+  xPosSpawn: 20
+  speed: 10
   pfExplosionEffect: {fileID: 5814235325923331571, guid: 557f8a9baf290c542b5838180539879a, type: 3}
+  expPerKill: 30

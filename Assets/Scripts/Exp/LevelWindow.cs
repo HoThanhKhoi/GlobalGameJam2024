@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelWindow : MonoBehaviour
-{
+{ 
     private TextMeshProUGUI levelText;
     private Slider expBarSlider;
-    private LevelSystem levelSystem;
+    public LevelSystem levelSystem { get; set; }
 
     private void Awake()
     {
@@ -43,13 +43,14 @@ public class LevelWindow : MonoBehaviour
 
     private void LevelSystem_OnExpChanged(object sender, System.EventArgs e)
     {
-        //Level changed, update text
-        SetLevelNumber(levelSystem.GetCurrentLevel());
+        //Experience change, update bar size
+        SetExpBarSize(levelSystem.GetExpNormalized());
     }
 
     private void LevelSystem_OnLevelChanged(object sender, System.EventArgs e)
     {
-        //Experience change, update bar size
-        SetExpBarSize(levelSystem.GetExpNormalized());
+        //Level changed, update text
+        SetLevelNumber(levelSystem.GetCurrentLevel());
+        levelSystem.UpdateMaxExp();
     }
 }

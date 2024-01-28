@@ -28,6 +28,7 @@ public class LevelSystem
 
     public void AddExp(int _exp)
     {
+        Debug.Log("Added " + _exp);
         exp += _exp;
         if(exp >= expToNextLevel)
         {
@@ -36,6 +37,12 @@ public class LevelSystem
             OnLevelChanged?.Invoke(this, EventArgs.Empty);
         }
         OnExpChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void UpdateMaxExp()
+    {
+        this.expToNextLevel += (int) this.expToNextLevel * 1 / 2;
+        Debug.Log("Exp to next level: " + expToNextLevel);
     }
 
     public int GetCurrentLevel()
