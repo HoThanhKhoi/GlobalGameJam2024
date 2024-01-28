@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver == true)
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(0);
         }
     }
