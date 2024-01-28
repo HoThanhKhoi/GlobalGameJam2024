@@ -15,15 +15,30 @@ public class PlayerShooting : MonoBehaviour
 
     private void Awake()
     {
-        player = Player.Instance;
+        player = GetComponent<Player>();
     }
 
     private void Start()
     {
         fieldOfViewRenderer = GetComponent<LineRenderer>();
 
-        fireRate = player.stats.playerStatSO.fireRate;
-        bulletFieldOfViewRange = player.stats.playerStatSO.inaccuracy;
+        fireRate = player.stats.fireRate.GetValue();
+        bulletFieldOfViewRange = player.stats.inaccuracy.GetValue();
+
+        Debug.Log("Bullet acc: " + bulletFieldOfViewRange);
+
+        player.stats.fireRate.OnValueChanged += FireRate_OnValueChanged;
+        player.stats.inaccuracy.OnValueChanged += Inaccuracy_OnValueChanged;
+    }
+
+    private void Inaccuracy_OnValueChanged()
+    {
+        bulletFieldOfViewRange = player.stats.inaccuracy.GetValue();
+    }
+
+    private void FireRate_OnValueChanged()
+    {
+        fireRate = player.stats.fireRate.GetValue();
     }
 
     private void Update()
@@ -45,9 +60,8 @@ public class PlayerShooting : MonoBehaviour
         fieldOfViewRenderer.SetPosition(0, transform.position);
         fieldOfViewRenderer.SetPosition(1, transform.position + (mousePosition - transform.position).normalized * 30f);
 
-        float bulletInaccuracy = 4f;
         fieldOfViewRenderer.startWidth = 0.5f;
-        fieldOfViewRenderer.endWidth = bulletInaccuracy;
+        fieldOfViewRenderer.endWidth = bulletFieldOfViewRange;
 
         Color lineColor = Color.black;
         lineColor.a = 0.25f;

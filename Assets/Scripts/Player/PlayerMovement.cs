@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    private float speed;
+    public float speed;
 
 
     private void Awake()
     {
-        player = Player.Instance;
+        player = GetComponent<Player>();
     }
 
     // Start is called before the first frame update
@@ -27,7 +27,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        speed = player.stats.playerStatSO.movementSpeed;
+        speed = player.stats.movementSpeed.GetValue();
+        player.stats.movementSpeed.OnValueChanged += MovementSpeed_OnValueChanged;
+    }
+
+    private void MovementSpeed_OnValueChanged()
+    {
+        Debug.Log(player.stats.movementSpeed.GetValue());
+        speed = player.stats.movementSpeed.GetValue();
     }
 
     // Update is called once per frame

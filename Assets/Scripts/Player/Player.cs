@@ -26,8 +26,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-
-        currentHappiness = stats.playerStatSO.maxHappiness;
+        currentHappiness = stats.maxHappiness.GetValue();
     }
     public void AddScore(int points)
     {
