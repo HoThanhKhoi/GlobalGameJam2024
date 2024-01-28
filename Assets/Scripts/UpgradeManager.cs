@@ -8,11 +8,10 @@ public class UpgradeManager : MonoBehaviour
     public static UpgradeManager Instance { get; private set; }
 
     private LevelManager levelManager;
-    public PlayerStatSO playerStatSO;
 
-    public float moveSpeedIncrement;
-    public float fireRateIncrement;
-    public float accuracyIncrement;
+    public float moveSpeedIncrementPercent;
+    public float fireRateDecrementPercent;
+    public float accuracyDecrementPercent;
 
     public List<GameObject> upgradeButtonList;
 

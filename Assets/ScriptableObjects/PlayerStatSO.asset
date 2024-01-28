@@ -19,6 +19,5 @@ MonoBehaviour:
   happinessIncreaseValue: 1
   fireRate: 1
   attackDamage: 0
-  inaccuracy: 0
+  inaccuracy: 4
   movementSpeed: 10
-  expGainPerKill: 0

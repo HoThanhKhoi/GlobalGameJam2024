@@ -15,7 +15,7 @@ public class H_Cat : Cat
     {
         base.Hit();
         AudioManager.Instance.Play("CatScreamAudio");
-        player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenHit);
+        player.stats.DecreaseHappiness(player.stats.happinessDecreaseValueWhenHit.GetValue());
     }
 
 
