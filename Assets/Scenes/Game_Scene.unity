@@ -498,6 +498,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 026ac9ab7509eaa4b804b8c5487e36a7, type: 3}
+--- !u!1 &417119254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417119255}
+  m_Layer: 0
+  m_Name: Jew_Cat_Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &417119255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417119254}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 680379796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &458562888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,10 +753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ad836c52b4a0048af948dc5c3ab9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatSO: {fileID: 11400000, guid: 9aacfc87a638f47458d0a07f26007f62, type: 2}
-  moveSpeedIncrement: 0.025
-  fireRateIncrement: 0.05
-  accuracyIncrement: 0.1
+  moveSpeedIncrementPercent: 2.5
+  fireRateIncrementPercent: 5
+  accuracyDecrementPercent: 10
   upgradeButtonList:
   - {fileID: 1573779904}
   - {fileID: 1901058517}
@@ -1009,6 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc53b537fbe3df54a8859857c15158ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!61 &605056646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1210,8 +1241,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb11b59ce92b7994a96dd9e2a6f76351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatSO: {fileID: 11400000, guid: 9aacfc87a638f47458d0a07f26007f62, type: 2}
   happinessBar: {fileID: 2080611893}
+  maxHappiness:
+    baseValue: 100
+  happinessDecreaseValueWhenHit:
+    baseValue: 20
+  happinessDecreaseValueWhenEscape:
+    baseValue: 10
+  happinessIncreaseValueOverTime:
+    baseValue: 1
+  fireRate:
+    baseValue: 0
+  inaccuracy:
+    baseValue: 0
+  movementSpeed:
+    baseValue: 10
 --- !u!4 &605056658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2985489581049950021, guid: 8ca884a0e3093594ea6b7ff4c4fabfaa, type: 3}
@@ -1253,7 +1297,7 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!1 &651547840
+--- !u!1 &680379794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1261,33 +1305,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 651547841}
-  m_Layer: 5
-  m_Name: UpgradeManager
+  - component: {fileID: 680379796}
+  - component: {fileID: 680379795}
+  m_Layer: 0
+  m_Name: Spawn_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &651547841
-RectTransform:
+--- !u!114 &680379795
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651547840}
+  m_GameObject: {fileID: 680379794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa4cb4dc191e5949b0f04590e894631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jewCat: {fileID: 3778517906186075040, guid: cd3d8edc3549dbb46aa8d3cbba831c48, type: 3}
+  jewCatContainer: {fileID: 417119254}
+  cats:
+  - {fileID: 7251288405580603276, guid: 6785f26fd61d96a479c0480e727936b6, type: 3}
+  - {fileID: 7251288405580603276, guid: 599978551aa4fea459b46133b7b910d7, type: 3}
+  - {fileID: 7251288405580603276, guid: 7400e63c3bb8b7547a79b16395eba746, type: 3}
+--- !u!4 &680379796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680379794}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1216546868}
+  m_Children:
+  - {fileID: 417119255}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &837953790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1918,6 @@ RectTransform:
   - {fileID: 837953791}
   - {fileID: 43593580}
   - {fileID: 1752599316}
-  - {fileID: 651547841}
   - {fileID: 58579194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2765,6 +2824,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1562172632}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: WhenUpgradeButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1562172630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2902,6 +2973,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1573779909}
         m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
         m_MethodName: UpgradeMoveSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1573779909}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: WhenUpgradeButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3154,7 +3237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.5
+  m_AmplitudeGain: 0
   m_FrequencyGain: 0
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1688384638
@@ -3528,6 +3611,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1901058522}
         m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
         m_MethodName: UpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1901058522}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: WhenUpgradeButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4246,63 +4341,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f69cfbeda616781488404bf61688dd0f, type: 3}
---- !u!1001 &2040328506425002547
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2935294532294657189, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261908811979325458, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
-      propertyPath: m_Name
-      value: Spawn_Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 39d26a7cd803a674e8f23b03ff2641d6, type: 3}
 --- !u!1001 &3012385515483894744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4495,7 +4533,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 2040328506425002547}
+  - {fileID: 680379796}
   - {fileID: 426872047782154412}
   - {fileID: 4758215706045259803}
   - {fileID: 201895342532020294}

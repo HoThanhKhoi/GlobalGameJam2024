@@ -1,30 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UpgradeButton : MonoBehaviour
 {
+    private Player player;
     private UpgradeManager upgradeManager;
     private void Start()
     {
+        player = Player.Instance;
         upgradeManager = UpgradeManager.Instance;
     }
     public void UpgradeMoveSpeed()
     {
-        upgradeManager.playerStatSO.movementSpeed += upgradeManager.moveSpeedIncrement * upgradeManager.playerStatSO.movementSpeed;
-        WhenUpgradeButtonClicked();
+        player.stats.IncreaseStatPercent(player.stats.movementSpeed, upgradeManager.moveSpeedIncrementPercent);
     }
 
     public void UpgradeFireRate()
     {
-        upgradeManager.playerStatSO.fireRate += upgradeManager.fireRateIncrement * upgradeManager.playerStatSO.fireRate;
-        WhenUpgradeButtonClicked();
+        player.stats.DecreaseStatPercent(player.stats.fireRate, upgradeManager.fireRateDecrementPercent);
     }
 
     public void UpgradeAccuracy()
     {
-        upgradeManager.playerStatSO.inaccuracy -= upgradeManager.accuracyIncrement * upgradeManager.playerStatSO.inaccuracy;
-        WhenUpgradeButtonClicked();
+        player.stats.DecreaseStatPercent(player.stats.inaccuracy, upgradeManager.accuracyDecrementPercent);
     }
 
     public void WhenUpgradeButtonClicked()

@@ -14,7 +14,7 @@ public class J_Cat : Cat
         if (other.CompareTag("Escape Border"))
         {
             Debug.Log("Escaped");
-            player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
+            player.stats.DecreaseHappiness(player.stats.happinessDecreaseValueWhenEscape.GetValue());
         }
         if (other.CompareTag("Bullet"))
         {
