@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
     [SerializeField] private LevelWindow levelWindow;
-    [SerializeField] private Player player;
+    public LevelSystem levelSystem { get; set; }
 
     private void Awake()
     {
@@ -19,9 +19,17 @@ public class LevelManager : MonoBehaviour
             Instance = this;
         }
 
-        LevelSystem levelSystem = new LevelSystem();
+        levelSystem = new LevelSystem();
+        
+    }
+
+    private void Start()
+    {
         levelWindow.SetLevelSystem(levelSystem);
     }
 
-
+    public void AddExp(int amount)
+    {
+        levelSystem.AddExp(amount);
+    }
 }

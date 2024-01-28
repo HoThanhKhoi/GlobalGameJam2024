@@ -19,4 +19,7 @@ public class PlayerStatSO : ScriptableObject
 
     [Header("Movement")]
     public float movementSpeed;
+
+    [Header("Exp")]
+    public int expGainPerKill;
 }
