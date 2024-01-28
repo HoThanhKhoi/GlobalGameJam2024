@@ -15,7 +15,7 @@ public class PlayerStatSO : ScriptableObject
     [Header("Attack")]
     public float fireRate;
     public int attackDamage;
-    public float accuracy;
+    public float inaccuracy;
 
     [Header("Movement")]
     public float movementSpeed;

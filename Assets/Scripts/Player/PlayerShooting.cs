@@ -23,7 +23,7 @@ public class PlayerShooting : MonoBehaviour
         fieldOfViewRenderer = GetComponent<LineRenderer>();
 
         fireRate = player.stats.playerStatSO.fireRate;
-        bulletFieldOfViewRange = player.stats.playerStatSO.accuracy;
+        bulletFieldOfViewRange = player.stats.playerStatSO.inaccuracy;
     }
 
     private void Update()

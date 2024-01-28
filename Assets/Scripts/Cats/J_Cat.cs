@@ -36,5 +36,7 @@ public class J_Cat : Cat
         Debug.Log(expPerKill);
 
         LevelManager.Instance.AddExp(expPerKill);
+
+        GameManager.Instance.AddScore(1);
     }
 }
