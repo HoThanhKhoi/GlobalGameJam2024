@@ -15,7 +15,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Awake()
     {
-        player = Player.Instance;
+        player = GetComponent<Player>();
     }
 
     private void Start()

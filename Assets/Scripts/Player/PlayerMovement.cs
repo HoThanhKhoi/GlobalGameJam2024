@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        player = Player.Instance;
+        player = GetComponent<Player>();
     }
 
     // Start is called before the first frame update
