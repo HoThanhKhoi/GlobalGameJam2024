@@ -51,7 +51,7 @@ public class LevelWindow : MonoBehaviour
     {
         //Level changed, update text
         SetLevelNumber(levelSystem.GetCurrentLevel());
-        levelSystem.UpdateMaxExp();
+        //levelSystem.UpdateMaxExp();
         UpgradeManager.Instance.SetActiveAllUpgradeButtons(true);
         Time.timeScale = 0;
     }

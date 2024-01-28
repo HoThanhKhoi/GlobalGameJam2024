@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedIncrementPercent: 2.5
-  fireRateIncrementPercent: 5
+  fireRateDecrementPercent: 5
   accuracyDecrementPercent: 10
   upgradeButtonList:
   - {fileID: 1573779904}
@@ -1245,15 +1245,15 @@ MonoBehaviour:
   maxHappiness:
     baseValue: 100
   happinessDecreaseValueWhenHit:
-    baseValue: 20
-  happinessDecreaseValueWhenEscape:
     baseValue: 10
+  happinessDecreaseValueWhenEscape:
+    baseValue: 20
   happinessIncreaseValueOverTime:
     baseValue: 1
   fireRate:
-    baseValue: 0
+    baseValue: 1
   inaccuracy:
-    baseValue: 0
+    baseValue: 4
   movementSpeed:
     baseValue: 10
 --- !u!4 &605056658 stripped
