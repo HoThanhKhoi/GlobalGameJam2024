@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class J_Cat : Cat
 {
+    //Exp
+    [SerializeField] private int expPerKill;
+
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
@@ -13,12 +16,25 @@ public class J_Cat : Cat
             Debug.Log("Escaped");
             player.stats.DecreaseHappiness(player.stats.playerStatSO.happinessDecreaseValueWhenEscape);
         }
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     protected override void Hit()
     {
         base.Hit();
-        GameManager.Instance.AddScore(1);
-        AudioManager.Instance.Play("CatScreamAudio");
+        
+
+        GameObject explosion = Instantiate(pfExplosionEffect, transform.position, Quaternion.identity);
+
+        Destroy(explosion, 1f);
+
+        Destroy(gameObject);
+
+        Debug.Log(expPerKill);
+
+        LevelManager.Instance.AddExp(expPerKill);
     }
 }
