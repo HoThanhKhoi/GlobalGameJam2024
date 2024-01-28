@@ -57,7 +57,7 @@ public class PlayerStats : MonoBehaviour
 
         if (currentHappiness <= 0)
         {
-            Time.timeScale = 0;
+            GameManager.Instance.EndGame();
         }
     }
 }

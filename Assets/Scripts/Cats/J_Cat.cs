@@ -18,6 +18,7 @@ public class J_Cat : Cat
     protected override void Hit()
     {
         base.Hit();
+        GameManager.Instance.AddScore(1);
         AudioManager.Instance.Play("CatScreamAudio");
     }
 }

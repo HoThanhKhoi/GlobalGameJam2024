@@ -111,5 +111,6 @@ public class Cat : MonoBehaviour
     protected virtual void Hit()
     {
         speed = 0;
+
     }
 }
